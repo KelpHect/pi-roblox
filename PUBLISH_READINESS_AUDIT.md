@@ -5,7 +5,7 @@ Candidate: `@kellhect/pi-roblox@0.3.0-beta.1`
 
 ## Decision
 
-The implementation is now a coherent, production-oriented Pi capability package and is locally beta-ready on Windows, the only supported release platform. The remaining release conditions are a passing Windows CI run and npm authentication. An unverified macOS Studio-MCP discovery path remains in the source but is not a release claim. Do not assign `latest` until the Windows registry smoke passes.
+The implementation is now a coherent, production-oriented Pi capability package and is beta-ready on Windows, the only supported release platform. The Windows CI run has passed; npm authentication is the only remaining condition for user-managed beta publication. An unverified macOS Studio-MCP discovery path remains in the source but is not a release claim. Do not assign `latest` until the Windows registry smoke passes.
 
 ## Stack and contract
 
@@ -57,10 +57,9 @@ Every compatibility fix has a regression test and passed the real Windows accept
 
 ## Remaining release work
 
-1. Let the configured Windows GitHub Actions workflow pass for the release commit.
-2. Authenticate the `kellhect` npm account with publishing 2FA or an appropriate granular token.
-3. Re-run `npm pack`, inspect the final tarball, and publish exactly that tarball with `npm publish <tarball> --access public --tag beta`.
-4. Install from the registry with `pi install npm:@kellhect/pi-roblox@beta` and repeat a minimal Pi load/doctor smoke.
-5. Promote with `npm dist-tag add @kellhect/pi-roblox@<version> latest` only after the Windows registry smoke passes.
+1. Authenticate the `kellhect` npm account with publishing 2FA or an appropriate granular token.
+2. Re-run `npm pack`, inspect the final tarball, and publish exactly that tarball with `npm publish <tarball> --access public --tag beta`.
+3. Install from the registry with `pi install npm:@kellhect/pi-roblox@beta` and repeat a minimal Pi load/doctor smoke.
+4. Promote with `npm dist-tag add @kellhect/pi-roblox@<version> latest` only after the Windows registry smoke passes.
 
 The current evidence is summarized in `VERIFICATION.md`; the structured Windows reports are under `verification/live/windows/`.

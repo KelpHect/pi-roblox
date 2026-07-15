@@ -4,6 +4,14 @@
   "description": "Rojo-aware Roblox Studio capabilities for the Pi coding harness",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KelpHect/pi-roblox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KelpHect/pi-roblox/issues"
+  },
+  "homepage": "https://github.com/KelpHect/pi-roblox#readme",
   "engines": {
     "node": ">=22.19.0"
   },

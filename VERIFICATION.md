@@ -12,10 +12,10 @@ Release candidate: **@kellhect/pi-roblox 0.3.0-beta.1**.
 - `npm run verify:package`: pass.
 - `npm run smoke:pack`: pass; a clean temporary project installed the tarball, Pi installed/listed it and completed offline package-resource startup, and the extension exposed all 12 tools, `/roblox`, and all 5 lifecycle hooks.
 - Final tarball: `dist/kellhect-pi-roblox-0.3.0-beta.1.tgz`, 95,881 bytes.
-- Final tarball SHA-256: `22EE76264DAF0BF48657B9FE5D756FDDD4BFE8E82574A8AD56A1A938C8021BC5`.
+- Final tarball SHA-256: `7CE3BFCF7EB4E1B378604710F46382B48701F8050A88ECCF653883FAE338299B`.
 - The registered Pi surface is execution-tested through the real runtime: all 12 tool wrappers, representative `/roblox` command branches, all 5 lifecycle handlers, event emission, audit/session entries, scenario execution, source replacement, and manual checkpoint rollback.
 
-CI is configured to repeat typecheck, tests, coverage, production audit, package verification, and the packed-install smoke test on Windows. The repository is `https://github.com/KelpHect/pi-roblox`; the first workflow run is recorded with the release commit.
+CI repeats typecheck, tests, coverage, production audit, package verification, and the packed-install smoke test on Windows. The first hosted run passed: [CI run 29396927703](https://github.com/KelpHect/pi-roblox/actions/runs/29396927703).
 
 ## Live release gates
 
@@ -35,10 +35,10 @@ Evidence: [Windows live report](verification/live/windows/windows-live-report.js
 
 The source retains an unverified macOS Studio-MCP discovery path, but macOS is not a supported release platform and is not a release gate.
 
-## Publication — blocked externally
+## Publication — user-managed
 
 - `package.json` is correctly named `@kellhect/pi-roblox`, versioned `0.3.0-beta.1`, and configured with `publishConfig.access: public`.
 - Both the normal `npm whoami` and an isolated-config check are unauthorized (`401`/`ENEEDAUTH`); this machine is not authenticated to npm.
 - The public registry currently returns `404` for `@kellhect/pi-roblox`, so no published version or dist-tag exists yet.
 - No publication or dist-tag mutation has been attempted.
-- Publish the first candidate with the `beta` tag after npm authentication and a passing Windows CI run. Do not assign `latest` until the Windows registry smoke passes.
+- The Windows CI run has passed. Publish the first candidate with the `beta` tag after npm authentication. Do not assign `latest` until the Windows registry smoke passes.
