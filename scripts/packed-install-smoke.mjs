@@ -44,7 +44,9 @@ try {
     cwd: temporary,
     env: npmEnvironment,
     windowsHide: true,
-    timeout: 180_000,
+    // The isolated install fetches Pi and its complete dependency graph. Hosted
+    // Windows runners can legitimately take longer than three minutes here.
+    timeout: 300_000,
     maxBuffer: 20 * 1024 * 1024
   });
 
