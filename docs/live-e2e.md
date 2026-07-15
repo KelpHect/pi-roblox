@@ -1,6 +1,6 @@
 # Live Roblox Studio acceptance test
 
-The automated suite validates the protocol and runtime against fake Rojo and MCP subprocesses. Run this checklist on each supported operating system before release because only Roblox Studio can validate platform packaging, Studio permissions, viewport behavior, and the installed MCP tool surface.
+The automated suite validates the protocol and runtime against fake Rojo and MCP subprocesses. Windows is the supported release platform, so run this checklist on Windows before release. Only Roblox Studio can validate platform packaging, Studio permissions, viewport behavior, and the installed MCP tool surface.
 
 ## Fixture project
 

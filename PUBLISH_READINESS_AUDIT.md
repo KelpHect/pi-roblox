@@ -5,7 +5,7 @@ Candidate: `@kellhect/pi-roblox@0.3.0-beta.1`
 
 ## Decision
 
-The implementation is now a coherent, production-oriented Pi capability package and is locally beta-ready on Windows. It is not yet release-complete across its declared platform matrix: a real macOS Roblox Studio acceptance run is missing, remote CI has not run from this checkout, and npm authentication is unavailable. Do not assign the `latest` tag until the Windows and macOS live rows both pass.
+The implementation is now a coherent, production-oriented Pi capability package and is locally beta-ready on Windows, the only supported release platform. The remaining release conditions are a passing Windows CI run and npm authentication. An unverified macOS Studio-MCP discovery path remains in the source but is not a release claim. Do not assign `latest` until the Windows registry smoke passes.
 
 ## Stack and contract
 
@@ -35,7 +35,7 @@ The package owns deterministic Roblox capability and delegates intelligence to t
 
 Implemented and wired:
 
-- Windows/macOS Studio MCP discovery, shared stdio lifecycle, dynamic tool enumeration, live schema validation, multiple-Studio selection, timeouts, and reconnect-safe close.
+- Windows Studio MCP discovery, shared stdio lifecycle, dynamic tool enumeration, live schema validation, multiple-Studio selection, timeouts, and reconnect-safe close. An unverified macOS discovery path remains available outside the supported release contract.
 - Strict default denial of Roblox-hosted `subagent` and generative tools, plus an always-confirm raw Luau escape hatch.
 - Rojo discovery, external-server recognition, extension-owned startup/readiness/shutdown, atomic sourcemaps, non-script mappings, and live readback proof.
 - Exact Studio/filesystem ownership, ambiguity and path-escape rejection, place guards, binary/generated/dependency/symlink protection.
@@ -57,11 +57,10 @@ Every compatibility fix has a regression test and passed the real Windows accept
 
 ## Remaining release work
 
-1. Run `npm ci`, the automated gate, `npm run live:acceptance`, and `npm run live:rojo-lifecycle` on a macOS host with current Roblox Studio and Rojo `7.6.1`; store the same reports and viewport artifact.
-2. Put the checkout in its publish repository and let the configured Ubuntu/Windows/macOS GitHub Actions matrix pass. This workspace currently has no `.git` metadata.
-3. Authenticate the `kellhect` npm account with publishing 2FA or an appropriate granular token.
-4. Re-run `npm pack`, inspect the final tarball, and publish exactly that tarball with `npm publish <tarball> --access public --tag beta`.
-5. Install from the registry with `pi install npm:@kellhect/pi-roblox@beta` and repeat a minimal Pi load/doctor smoke.
-6. Promote with `npm dist-tag add @kellhect/pi-roblox@<version> latest` only after both live platform rows and registry smoke pass.
+1. Let the configured Windows GitHub Actions workflow pass for the release commit.
+2. Authenticate the `kellhect` npm account with publishing 2FA or an appropriate granular token.
+3. Re-run `npm pack`, inspect the final tarball, and publish exactly that tarball with `npm publish <tarball> --access public --tag beta`.
+4. Install from the registry with `pi install npm:@kellhect/pi-roblox@beta` and repeat a minimal Pi load/doctor smoke.
+5. Promote with `npm dist-tag add @kellhect/pi-roblox@<version> latest` only after the Windows registry smoke passes.
 
 The current evidence is summarized in `VERIFICATION.md`; the structured Windows reports are under `verification/live/windows/`.

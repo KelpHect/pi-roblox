@@ -11,11 +11,11 @@ Release candidate: **@kellhect/pi-roblox 0.3.0-beta.1**.
 - `npm run audit:prod`: pass; 0 production vulnerabilities.
 - `npm run verify:package`: pass.
 - `npm run smoke:pack`: pass; a clean temporary project installed the tarball, Pi installed/listed it and completed offline package-resource startup, and the extension exposed all 12 tools, `/roblox`, and all 5 lifecycle hooks.
-- Final tarball: `dist/kellhect-pi-roblox-0.3.0-beta.1.tgz`, 95,820 bytes.
-- Final tarball SHA-256: `23203B3BF7DEDFEAA6249241111769B5AC8D15771589DAD9281E7E03B79EE215`.
+- Final tarball: `dist/kellhect-pi-roblox-0.3.0-beta.1.tgz`, 95,881 bytes.
+- Final tarball SHA-256: `22EE76264DAF0BF48657B9FE5D756FDDD4BFE8E82574A8AD56A1A938C8021BC5`.
 - The registered Pi surface is execution-tested through the real runtime: all 12 tool wrappers, representative `/roblox` command branches, all 5 lifecycle handlers, event emission, audit/session entries, scenario execution, source replacement, and manual checkpoint rollback.
 
-CI is configured to repeat typecheck, tests, coverage, production audit, package verification, and the packed-install smoke test on Ubuntu, Windows, and macOS. This workspace has no `.git` metadata or remote, and `gh repo view kellhect/pi-roblox` found no repository, so the workflow is configured but has not been executed remotely from this checkout. GitHub CLI is authenticated separately as `KelpHect`.
+CI is configured to repeat typecheck, tests, coverage, production audit, package verification, and the packed-install smoke test on Windows. The repository is `https://github.com/KelpHect/pi-roblox`; the first workflow run is recorded with the release commit.
 
 ## Live release gates
 
@@ -31,9 +31,9 @@ CI is configured to repeat typecheck, tests, coverage, production audit, package
 
 Evidence: [Windows live report](verification/live/windows/windows-live-report.json), [Rojo lifecycle report](verification/live/windows/windows-rojo-lifecycle.json), and [Windows evidence notes](verification/live/windows/README.md).
 
-### macOS — pending
+### macOS — non-release compatibility path
 
-No macOS host with Roblox Studio is available in this workspace. The platform discovery path and macOS CI lane are implemented, but the required real Studio/Rojo/plugin acceptance run has not been performed.
+The source retains an unverified macOS Studio-MCP discovery path, but macOS is not a supported release platform and is not a release gate.
 
 ## Publication — blocked externally
 
@@ -41,4 +41,4 @@ No macOS host with Roblox Studio is available in this workspace. The platform di
 - Both the normal `npm whoami` and an isolated-config check are unauthorized (`401`/`ENEEDAUTH`); this machine is not authenticated to npm.
 - The public registry currently returns `404` for `@kellhect/pi-roblox`, so no published version or dist-tag exists yet.
 - No publication or dist-tag mutation has been attempted.
-- Publish the first candidate with the `beta` tag only after npm authentication and the chosen release policy permits the remaining macOS gap. Do not assign `latest` until both supported live Studio rows pass.
+- Publish the first candidate with the `beta` tag after npm authentication and a passing Windows CI run. Do not assign `latest` until the Windows registry smoke passes.

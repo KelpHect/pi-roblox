@@ -56,7 +56,7 @@ See [Architecture](docs/architecture.md), [Security](docs/security.md), [Transac
 - Rojo on `PATH` for `mode: "rojo"`.
 - The Rojo Studio plugin connected when live filesystem-to-Studio synchronization proof is required.
 
-Studio MCP is discovered automatically on Windows and macOS. Other environments can provide `studio.command` and `studio.args` explicitly.
+Windows is the supported and release-verified platform. Studio MCP is discovered automatically on Windows; an unverified macOS discovery path remains available for contributors who choose to test it. Other environments can provide `studio.command` and `studio.args` explicitly.
 
 ## Install
 

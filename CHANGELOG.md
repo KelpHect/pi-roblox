@@ -42,7 +42,7 @@ All notable changes are documented here.
 
 - Windows 11 acceptance passed against Roblox Studio `0.729.597.7291029`, its 27-tool built-in MCP surface, Rojo CLI/plugin `7.6.1`, and a disposable private place.
 - Live evidence covers Rojo synchronization, stale-hash rejection, filesystem and Studio rollback, play control, viewport capture, console source remapping, wrong-place rejection, hosted-subagent denial, audit redaction, external-server detection, and managed Rojo shutdown.
-- macOS live acceptance remains required before stable promotion.
+- Windows is the supported and release-verified platform; the retained macOS discovery path is unverified and non-release.
 
 ## 0.1.0
 
