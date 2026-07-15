@@ -12,7 +12,7 @@ Release candidate: **@kellhect/pi-roblox 0.3.0-beta.1**.
 - `npm run verify:package`: pass.
 - `npm run smoke:pack`: pass; a clean temporary project installed the tarball, Pi installed/listed it and completed offline package-resource startup, and the extension exposed all 12 tools, `/roblox`, and all 5 lifecycle hooks.
 - Final tarball: `dist/kellhect-pi-roblox-0.3.0-beta.1.tgz`, 95,881 bytes.
-- Final tarball SHA-256: `7CE3BFCF7EB4E1B378604710F46382B48701F8050A88ECCF653883FAE338299B`.
+- Final tarball SHA-256: `C3AAA56761E958B087CED3AA743C8947045F64F465935C0D7373E82EB9CA2DEC`.
 - The registered Pi surface is execution-tested through the real runtime: all 12 tool wrappers, representative `/roblox` command branches, all 5 lifecycle handlers, event emission, audit/session entries, scenario execution, source replacement, and manual checkpoint rollback.
 
 CI repeats typecheck, tests, coverage, production audit, package verification, and the packed-install smoke test on Windows. The first hosted run passed: [CI run 29396927703](https://github.com/KelpHect/pi-roblox/actions/runs/29396927703).

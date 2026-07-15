@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { cp, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { basename, join, resolve } from "node:path";
 import { promisify } from "node:util";
@@ -35,20 +35,31 @@ try {
   await exec(process.execPath, [npmCli,
     "install",
     tarball,
-    "@earendil-works/pi-coding-agent@0.80.7",
-    "typebox@1.3.6",
     "--ignore-scripts",
+    "--legacy-peer-deps",
     "--no-audit",
     "--no-fund"
   ], {
     cwd: temporary,
     env: npmEnvironment,
     windowsHide: true,
-    // The isolated install fetches Pi and its complete dependency graph. Hosted
-    // Windows runners can legitimately take longer than three minutes here.
-    timeout: 300_000,
+    timeout: 180_000,
     maxBuffer: 20 * 1024 * 1024
   });
+
+  // Pi and TypeBox are host-provided peer dependencies. Reuse the exact host
+  // packages installed for this test run instead of doing a second registry
+  // resolution in the isolated fixture.
+  await cp(
+    join(root, "node_modules", "@earendil-works"),
+    join(temporary, "node_modules", "@earendil-works"),
+    { recursive: true }
+  );
+  await cp(
+    join(root, "node_modules", "typebox"),
+    join(temporary, "node_modules", "typebox"),
+    { recursive: true }
+  );
 
   const installedManifest = JSON.parse(await readFile(
     join(temporary, "node_modules", "@kellhect", "pi-roblox", "package.json"),
@@ -59,7 +70,7 @@ try {
 
   const installedPackage = join(temporary, "node_modules", "@kellhect", "pi-roblox");
   const piCli = join(
-    temporary,
+    root,
     "node_modules",
     "@earendil-works",
     "pi-coding-agent",
