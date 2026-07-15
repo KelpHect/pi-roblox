@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../../../../../schemas/scenario.schema.json",
+  "version": 1,
+  "name": "Windows live smoke",
+  "description": "Validates play control, live Rojo content, viewport capture, console output, and teardown.",
+  "timeoutMs": 60000,
+  "steps": [
+    { "kind": "play", "action": "start", "mode": "play" },
+    { "kind": "wait", "milliseconds": 1500 },
+    {
+      "kind": "luau",
+      "dataModelType": "Server",
+      "code": "return game:GetService('ReplicatedStorage'):FindFirstChild('PiRobloxLive') ~= nil",
+      "expect": { "truthy": true },
+      "saveAs": "rojoFolderPresent"
+    },
+    { "kind": "capture", "name": "windows-live-viewport" },
+    { "kind": "console", "dataModelType": "Server", "name": "windows-live-console" },
+    { "kind": "play", "action": "stop" }
+  ],
+  "failOnConsoleErrors": true,
+  "failOnConsoleWarnings": false,
+  "alwaysStopPlay": true
+}

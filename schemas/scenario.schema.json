@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:pi-roblox:scenario:v1",
+  "title": "pi-roblox playtest scenario",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "name",
+    "steps"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "timeoutMs": {
+      "type": "integer",
+      "minimum": 1000,
+      "maximum": 1800000
+    },
+    "setup": {
+      "$ref": "#/$defs/steps"
+    },
+    "steps": {
+      "$ref": "#/$defs/steps"
+    },
+    "teardown": {
+      "$ref": "#/$defs/steps"
+    },
+    "failOnConsoleErrors": {
+      "type": "boolean"
+    },
+    "failOnConsoleWarnings": {
+      "type": "boolean"
+    },
+    "alwaysStopPlay": {
+      "type": "boolean"
+    }
+  },
+  "$defs": {
+    "dataModelType": {
+      "enum": [
+        "Edit",
+        "Client",
+        "Server"
+      ]
+    },
+    "expectation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "jsonPath": {
+          "type": "string"
+        },
+        "equals": true,
+        "truthy": {
+          "type": "boolean"
+        },
+        "contains": {
+          "type": "string"
+        },
+        "matches": {
+          "type": "string"
+        },
+        "not": {
+          "type": "boolean"
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "equals": true
+          },
+          "required": [
+            "equals"
+          ]
+        },
+        {
+          "properties": {
+            "truthy": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "truthy"
+          ]
+        },
+        {
+          "properties": {
+            "contains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "contains"
+          ]
+        },
+        {
+          "properties": {
+            "matches": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "matches"
+          ]
+        }
+      ]
+    },
+    "common": {
+      "type": "object",
+      "properties": {
+        "continueOnFailure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "toolStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "tool"
+      ],
+      "properties": {
+        "kind": {
+          "const": "tool"
+        },
+        "tool": {
+          "type": "string",
+          "minLength": 1
+        },
+        "arguments": {
+          "type": "object"
+        },
+        "expect": {
+          "$ref": "#/$defs/expectation"
+        },
+        "saveAs": {
+          "type": "string",
+          "minLength": 1
+        },
+        "continueOnFailure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "luauStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "code"
+      ],
+      "properties": {
+        "kind": {
+          "const": "luau"
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataModelType": {
+          "$ref": "#/$defs/dataModelType"
+        },
+        "expect": {
+          "$ref": "#/$defs/expectation"
+        },
+        "saveAs": {
+          "type": "string",
+          "minLength": 1
+        },
+        "continueOnFailure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "waitStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "milliseconds"
+      ],
+      "properties": {
+        "kind": {
+          "const": "wait"
+        },
+        "milliseconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 300000
+        },
+        "continueOnFailure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "playStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "action"
+      ],
+      "properties": {
+        "kind": {
+          "const": "play"
+        },
+        "action": {
+          "enum": [
+            "start",
+            "stop"
+          ]
+        },
+        "mode": {
+          "enum": [
+            "play",
+            "run"
+          ]
+        },
+        "continueOnFailure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "captureStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "const": "capture"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "arguments": {
+          "type": "object"
+        },
+        "continueOnFailure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "consoleStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "const": "console"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataModelType": {
+          "$ref": "#/$defs/dataModelType"
+        },
+        "expect": {
+          "$ref": "#/$defs/expectation"
+        },
+        "continueOnFailure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "navigateStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "target"
+      ],
+      "properties": {
+        "kind": {
+          "const": "navigate"
+        },
+        "target": {
+          "type": "string",
+          "pattern": "^game\\."
+        },
+        "arguments": {
+          "type": "object"
+        },
+        "continueOnFailure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "assertStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "expect"
+      ],
+      "properties": {
+        "kind": {
+          "const": "assert"
+        },
+        "value": true,
+        "from": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expect": {
+          "$ref": "#/$defs/expectation"
+        },
+        "continueOnFailure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "step": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/toolStep"
+        },
+        {
+          "$ref": "#/$defs/luauStep"
+        },
+        {
+          "$ref": "#/$defs/waitStep"
+        },
+        {
+          "$ref": "#/$defs/playStep"
+        },
+        {
+          "$ref": "#/$defs/captureStep"
+        },
+        {
+          "$ref": "#/$defs/consoleStep"
+        },
+        {
+          "$ref": "#/$defs/navigateStep"
+        },
+        {
+          "$ref": "#/$defs/assertStep"
+        }
+      ]
+    },
+    "steps": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    }
+  }
+}

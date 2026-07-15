@@ -1,0 +1,12 @@
+node_modules/
+/.pi/roblox/
+/.pi/roblox.json
+verification/live/**/.pi/roblox/audit/
+verification/live/**/.pi/roblox/artifacts/
+verification/live/**/.pi/roblox/checkpoints/
+verification/live/**/.pi/roblox/*.rbxlx
+verification/live/**/.pi/roblox/*sourcemap.json
+verification/live/**/.pi/roblox/*.log
+*.log
+dist/
+coverage/

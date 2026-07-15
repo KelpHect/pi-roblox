@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "startedAt": "2026-07-15T06:43:48.296Z",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "osRelease": "10.0.26200",
+    "osVersion": "Windows 11 Pro"
+  },
+  "cwd": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture",
+  "host": "127.0.0.1",
+  "port": 34872,
+  "portOpenBeforeInitialize": false,
+  "managed": {
+    "configured": true,
+    "running": true,
+    "ready": true,
+    "ownedByExtension": true,
+    "address": "127.0.0.1",
+    "port": 34872,
+    "url": "http://127.0.0.1:34872/",
+    "logTail": "Rojo server listening:\n  Address: localhost\n  Port:    34872\n\nVisit http://localhost:34872/ in your browser for more information.\n",
+    "pid": 32208,
+    "startedAt": "2026-07-15T06:43:48.325Z",
+    "exitCode": null,
+    "serverInfo": {
+      "sessionId": "a1b9c83f-fd39-4336-b169-a11750abdefd",
+      "serverVersion": "7.6.1",
+      "protocolVersion": 4,
+      "projectName": "PiRobloxLiveAcceptance",
+      "expectedPlaceIds": [
+        118023848497907
+      ],
+      "unexpectedPlaceIds": null,
+      "gameId": null,
+      "placeId": null,
+      "rootInstanceId": "44f42b142c87eb0770ef6b84f0a8e33e"
+    }
+  },
+  "portOpenWhileManaged": true,
+  "portOpenAfterClose": false,
+  "finishedAt": "2026-07-15T06:43:48.761Z"
+}

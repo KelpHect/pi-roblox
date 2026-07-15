@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/scenario.schema.json",
+  "version": 1,
+  "name": "Studio smoke test",
+  "description": "Starts a playtest, verifies Workspace on the server, captures the viewport, and stops.",
+  "timeoutMs": 60000,
+  "steps": [
+    { "kind": "play", "action": "start", "mode": "play" },
+    {
+      "kind": "luau",
+      "dataModelType": "Server",
+      "code": "return game ~= nil and game:GetService('Workspace') ~= nil",
+      "expect": { "truthy": true },
+      "saveAs": "workspaceAvailable"
+    },
+    { "kind": "capture", "name": "smoke-viewport" },
+    { "kind": "play", "action": "stop" }
+  ],
+  "failOnConsoleErrors": true,
+  "failOnConsoleWarnings": false,
+  "alwaysStopPlay": true
+}

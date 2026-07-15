@@ -1,0 +1,747 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "startedAt": "2026-07-15T06:42:30.692Z",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "osRelease": "10.0.26200",
+    "osVersion": "Windows 11 Pro",
+    "node": "v24.18.0",
+    "rojo": "Rojo 7.6.1",
+    "studioVersion": "0.729.597.7291029",
+    "cwd": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture"
+  },
+  "checks": [
+    {
+      "name": "runtime-initialize",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:30.719Z",
+      "durationMs": 114
+    },
+    {
+      "name": "doctor",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:30.833Z",
+      "durationMs": 180
+    },
+    {
+      "name": "studio-tool-discovery",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:31.013Z",
+      "durationMs": 1
+    },
+    {
+      "name": "studio-selection",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:31.014Z",
+      "durationMs": 4
+    },
+    {
+      "name": "place-identity",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:31.018Z",
+      "durationMs": 223
+    },
+    {
+      "name": "validation-profile",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:31.241Z",
+      "durationMs": 76
+    },
+    {
+      "name": "mapped-source-inspection",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:31.317Z",
+      "durationMs": 42
+    },
+    {
+      "name": "filesystem-transaction-and-sync",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:31.359Z",
+      "durationMs": 334
+    },
+    {
+      "name": "stale-hash-rejection",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:31.693Z",
+      "durationMs": 1
+    },
+    {
+      "name": "filesystem-checkpoint-rollback",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:31.694Z",
+      "durationMs": 348
+    },
+    {
+      "name": "studio-transaction-dry-run",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:32.042Z",
+      "durationMs": 1
+    },
+    {
+      "name": "studio-create-and-set-transaction",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:32.043Z",
+      "durationMs": 266
+    },
+    {
+      "name": "studio-delete-transaction",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:32.309Z",
+      "durationMs": 240
+    },
+    {
+      "name": "studio-delete-rollback",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:32.549Z",
+      "durationMs": 259
+    },
+    {
+      "name": "studio-create-rollback",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:32.808Z",
+      "durationMs": 267
+    },
+    {
+      "name": "playtest-screenshot-console-teardown",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:33.075Z",
+      "durationMs": 5391
+    },
+    {
+      "name": "controlled-runtime-error-sync",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:38.507Z",
+      "durationMs": 269
+    },
+    {
+      "name": "console-source-remapping",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:38.776Z",
+      "durationMs": 5384
+    },
+    {
+      "name": "controlled-error-rollback",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:44.160Z",
+      "durationMs": 381
+    },
+    {
+      "name": "wrong-place-guard",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:44.541Z",
+      "durationMs": 168
+    },
+    {
+      "name": "roblox-hosted-subagent-denial",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:44.709Z",
+      "durationMs": 0
+    },
+    {
+      "name": "audit-redaction",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:44.709Z",
+      "durationMs": 2
+    }
+  ],
+  "evidence": {
+    "doctor": {
+      "status": "pass",
+      "checks": [
+        {
+          "name": "configuration",
+          "status": "pass",
+          "detail": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox.json"
+        },
+        {
+          "name": "rojo-project",
+          "status": "pass",
+          "detail": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\default.project.json"
+        },
+        {
+          "name": "rojo-sourcemap",
+          "status": "pass",
+          "detail": "6 instances and 2 source files indexed."
+        },
+        {
+          "name": "rojo-server",
+          "status": "pass",
+          "detail": "Ready at http://127.0.0.1:34872/ (external)."
+        },
+        {
+          "name": "ownership-conflicts",
+          "status": "pass",
+          "detail": "No duplicate Studio/source mappings."
+        },
+        {
+          "name": "studio",
+          "status": "pass",
+          "detail": "27 MCP tools discovered."
+        },
+        {
+          "name": "studio-required-tools",
+          "status": "pass",
+          "detail": "All required tools are present."
+        },
+        {
+          "name": "place-guard",
+          "status": "pass",
+          "detail": "Studio place 118023848497907 is allowed."
+        }
+      ],
+      "runtime": {
+        "cwd": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture",
+        "configPath": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox.json",
+        "configExists": true,
+        "configWarnings": [],
+        "mode": "rojo",
+        "projectFile": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\default.project.json",
+        "projectExists": true,
+        "indexedInstances": 6,
+        "mappedSourceFiles": 2,
+        "ownershipConflicts": 0,
+        "studioConnected": true,
+        "studioToolCount": 27,
+        "missingStudioTools": [],
+        "project": {
+          "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\default.project.json",
+          "directory": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture",
+          "serveAddress": "127.0.0.1",
+          "servePort": 34872,
+          "servePlaceIds": [
+            118023848497907
+          ],
+          "hasTree": true,
+          "raw": {
+            "name": "PiRobloxLiveAcceptance",
+            "serveAddress": "127.0.0.1",
+            "servePort": 34872,
+            "servePlaceIds": [
+              118023848497907
+            ],
+            "tree": {
+              "$className": "DataModel",
+              "ReplicatedStorage": {
+                "PiRobloxLive": {
+                  "$className": "Folder",
+                  "LiveSmoke": {
+                    "$path": "src/shared/LiveSmoke.luau"
+                  }
+                }
+              },
+              "ServerScriptService": {
+                "PiRobloxLiveError": {
+                  "$path": "src/server/LiveError.server.luau"
+                }
+              }
+            }
+          },
+          "name": "PiRobloxLiveAcceptance"
+        },
+        "sourcemapFile": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\sourcemap.json",
+        "rojoServer": {
+          "configured": true,
+          "running": true,
+          "ready": true,
+          "ownedByExtension": false,
+          "address": "127.0.0.1",
+          "port": 34872,
+          "url": "http://127.0.0.1:34872/",
+          "logTail": "",
+          "serverInfo": {
+            "sessionId": "94e0bdbc-9ec9-4a7c-9e06-64b587089d22",
+            "serverVersion": "7.6.1",
+            "protocolVersion": 4,
+            "projectName": "PiRobloxLiveAcceptance",
+            "expectedPlaceIds": [
+              118023848497907
+            ],
+            "unexpectedPlaceIds": null,
+            "gameId": null,
+            "placeId": null,
+            "rootInstanceId": "81c021facf3457d4aaeede885c7b8bd5"
+          }
+        }
+      }
+    },
+    "studioTools": [
+      "http_get",
+      "character_navigation",
+      "user_mouse_input",
+      "search_game_tree",
+      "script_search",
+      "upload_image",
+      "script_read",
+      "insert_asset",
+      "subagent",
+      "multi_edit",
+      "get_studio_state",
+      "search_asset",
+      "execute_luau",
+      "skill",
+      "screen_capture",
+      "get_console_output",
+      "script_grep",
+      "wait_job_finished",
+      "generate_procedural_model",
+      "generate_material",
+      "user_keyboard_input",
+      "start_stop_play",
+      "generate_mesh",
+      "inspect_instance",
+      "store_image",
+      "list_roblox_studios",
+      "set_active_studio"
+    ],
+    "studios": {
+      "listed": {
+        "studios": [
+          {
+            "active": true,
+            "id": "7897452b-55e2-4cff-90bb-cf319128e3aa",
+            "name": "Experiência sem título"
+          }
+        ]
+      },
+      "selectedStudioId": "7897452b-55e2-4cff-90bb-cf319128e3aa",
+      "selectedStudioName": "Experiência sem título"
+    },
+    "place": {
+      "placeVersion": 8,
+      "placeId": 118023848497907,
+      "gameId": 10371824046
+    },
+    "validation": {
+      "profile": "default",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:31.241Z",
+      "durationMs": 76,
+      "results": [
+        {
+          "name": "node-check",
+          "command": "node -e process.stdout.write('live-validation-ok')",
+          "status": "pass",
+          "code": 0,
+          "durationMs": 44,
+          "stdout": "live-validation-ok",
+          "stderr": "",
+          "truncated": false
+        },
+        {
+          "name": "rojo-build",
+          "command": "rojo build default.project.json --output .pi/roblox/live-build.rbxlx",
+          "status": "pass",
+          "code": 0,
+          "durationMs": 32,
+          "stdout": "Building project 'PiRobloxLiveAcceptance'\nBuilt project to live-build.rbxlx\n",
+          "stderr": "",
+          "truncated": false
+        }
+      ]
+    },
+    "initialInspection": {
+      "ownership": {
+        "target": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\src\\shared\\LiveSmoke.luau",
+        "ownership": "rojo-owned",
+        "editable": true,
+        "reason": "The selected Rojo sourcemap maps this file to a Studio instance.",
+        "sourcePath": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\src\\shared\\LiveSmoke.luau",
+        "studioPath": "game.ReplicatedStorage.PiRobloxLive.LiveSmoke"
+      },
+      "sha256": "sha256:6f237f2c76d168e2c33c198db9a9eedf496151aa4fed2e8b6f45e0bb1c59f130",
+      "size": 120,
+      "studioReadback": true
+    },
+    "fileTransaction": {
+      "status": "applied",
+      "checkpointId": "2026-07-15T06-42-31-361Z-4246a9a6",
+      "operations": [
+        {
+          "kind": "write",
+          "sourcePath": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\src\\shared\\LiveSmoke.luau",
+          "ownership": "rojo-owned",
+          "beforeSha256": "sha256:6f237f2c76d168e2c33c198db9a9eedf496151aa4fed2e8b6f45e0bb1c59f130",
+          "afterSha256": "sha256:d906120672c574b237a5337c257e247f7d4b4cc4c3f69824f50ea23fe2363575"
+        }
+      ],
+      "sync": [
+        {
+          "sourcePath": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\src\\shared\\LiveSmoke.luau",
+          "studioPath": "game.ReplicatedStorage.PiRobloxLive.LiveSmoke",
+          "status": "verified"
+        }
+      ],
+      "validation": {
+        "profile": "changed",
+        "status": "pass",
+        "startedAt": "2026-07-15T06:42:31.625Z",
+        "durationMs": 67,
+        "results": [
+          {
+            "name": "node-check",
+            "command": "node -e process.stdout.write('live-validation-ok')",
+            "status": "pass",
+            "code": 0,
+            "durationMs": 67,
+            "stdout": "live-validation-ok",
+            "stderr": "",
+            "truncated": false
+          }
+        ]
+      }
+    },
+    "staleHash": {
+      "rejected": true,
+      "message": "Stale mutation rejected for D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\src\\shared\\LiveSmoke.luau. Expected sha256:6f237f2c76d168e2c33c198db9a9eedf496151aa4fed2e8b6f45e0bb1c59f130; current sha256:d906120672c574b237a5337c257e247f7d4b4cc4c3f69824f50ea23fe2363575."
+    },
+    "fileRollback": {
+      "restored": true,
+      "originalBytes": 120
+    },
+    "studioDryRun": {
+      "status": "dry-run",
+      "operations": [
+        {
+          "kind": "create",
+          "parent": "game.Workspace",
+          "className": "Folder",
+          "name": "PiRobloxStudioOwned",
+          "attributes": {
+            "Phase": "created"
+          },
+          "tags": [
+            "PiRobloxLive"
+          ]
+        },
+        {
+          "kind": "set-attributes",
+          "target": "game.Workspace.PiRobloxStudioOwned",
+          "attributes": {
+            "Phase": "updated",
+            "Enabled": true
+          }
+        },
+        {
+          "kind": "create",
+          "parent": "game.Workspace.PiRobloxStudioOwned",
+          "className": "Part",
+          "name": "CheckpointPart",
+          "properties": {
+            "Anchored": true,
+            "Position": {
+              "$type": "Vector3",
+              "value": [
+                0,
+                5,
+                0
+              ]
+            },
+            "Color": {
+              "$type": "Color3RGB",
+              "value": [
+                0,
+                170,
+                255
+              ]
+            }
+          },
+          "tags": [
+            "PiRobloxLive"
+          ]
+        }
+      ]
+    },
+    "studioCreate": {
+      "status": "applied",
+      "checkpointId": "2026-07-15T06-42-32-043Z-eae25ad1",
+      "operationCount": 3,
+      "payloadOk": true
+    },
+    "studioDelete": {
+      "status": "applied",
+      "checkpointId": "2026-07-15T06-42-32-309Z-7bbb3bb2",
+      "payloadOk": true
+    },
+    "studioRollback": {
+      "deleteRestored": true,
+      "createRemoved": true
+    },
+    "smokeScenario": {
+      "scenario": "Windows live smoke",
+      "description": "Validates play control, live Rojo content, viewport capture, console output, and teardown.",
+      "status": "pass",
+      "startedAt": "2026-07-15T06:42:33.078Z",
+      "durationMs": 5384,
+      "artifactRunId": "2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386",
+      "artifactDirectory": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386",
+      "sourcePath": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\scenarios\\smoke.jsonc",
+      "steps": [
+        {
+          "phase": "steps",
+          "index": 0,
+          "kind": "play",
+          "startedAt": "2026-07-15T06:42:33.108Z",
+          "status": "pass",
+          "durationMs": 2087,
+          "summary": "start_stop_play completed.",
+          "value": "Game Started",
+          "artifacts": [
+            {
+              "kind": "json",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\steps-1-play-start-result.json",
+              "size": 106
+            },
+            {
+              "kind": "text",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\steps-1-play-start-text.txt",
+              "size": 12
+            }
+          ]
+        },
+        {
+          "phase": "steps",
+          "index": 1,
+          "kind": "wait",
+          "startedAt": "2026-07-15T06:42:35.195Z",
+          "status": "pass",
+          "durationMs": 1514,
+          "summary": "Waited 1500ms."
+        },
+        {
+          "phase": "steps",
+          "index": 2,
+          "kind": "luau",
+          "startedAt": "2026-07-15T06:42:36.709Z",
+          "status": "pass",
+          "durationMs": 273,
+          "summary": "Expectation passed: is truthy.",
+          "value": true,
+          "artifacts": [
+            {
+              "kind": "json",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\rojoFolderPresent-result.json",
+              "size": 98
+            },
+            {
+              "kind": "text",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\rojoFolderPresent-text.txt",
+              "size": 4
+            }
+          ]
+        },
+        {
+          "phase": "steps",
+          "index": 3,
+          "kind": "capture",
+          "startedAt": "2026-07-15T06:42:36.982Z",
+          "status": "pass",
+          "durationMs": 166,
+          "summary": "screen_capture completed.",
+          "value": "",
+          "artifacts": [
+            {
+              "kind": "json",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\windows-live-viewport-result.json",
+              "size": 175
+            },
+            {
+              "kind": "image",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\windows-live-viewport-1.jpg",
+              "mimeType": "image/jpeg",
+              "size": 91401
+            }
+          ]
+        },
+        {
+          "phase": "steps",
+          "index": 4,
+          "kind": "console",
+          "startedAt": "2026-07-15T06:42:37.148Z",
+          "status": "pass",
+          "durationMs": 31,
+          "summary": "get_console_output completed.",
+          "value": "PI_ROBLOX_LIVE_READY\n[RoCoder] Studio plugin started — polling http://127.0.0.1:45517\n[RoCoder] Studio plugin started — polling http://127.0.0.1:45517",
+          "artifacts": [
+            {
+              "kind": "json",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\windows-live-console-result.json",
+              "size": 250
+            },
+            {
+              "kind": "text",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\windows-live-console-text.txt",
+              "size": 154
+            }
+          ]
+        },
+        {
+          "phase": "steps",
+          "index": 5,
+          "kind": "play",
+          "startedAt": "2026-07-15T06:42:37.179Z",
+          "status": "pass",
+          "durationMs": 1250,
+          "summary": "start_stop_play completed.",
+          "value": "Game Stopped",
+          "artifacts": [
+            {
+              "kind": "json",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\steps-6-play-stop-result.json",
+              "size": 106
+            },
+            {
+              "kind": "text",
+              "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\steps-6-play-stop-text.txt",
+              "size": 12
+            }
+          ]
+        }
+      ],
+      "diagnostics": [],
+      "savedValues": {
+        "rojoFolderPresent": true
+      },
+      "reportArtifact": {
+        "kind": "json",
+        "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-33-078Z-scenario-Windows-live-smoke-0012f386\\report.json",
+        "size": 5174
+      }
+    },
+    "controlledError": {
+      "scenario": {
+        "scenario": "Controlled mapped runtime error",
+        "status": "pass",
+        "startedAt": "2026-07-15T06:42:38.777Z",
+        "durationMs": 5351,
+        "artifactRunId": "2026-07-15T06-42-38-777Z-scenario-Controlled-mapped-runtime-error-001b1791",
+        "artifactDirectory": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-38-777Z-scenario-Controlled-mapped-runtime-error-001b1791",
+        "steps": [
+          {
+            "phase": "steps",
+            "index": 0,
+            "kind": "play",
+            "startedAt": "2026-07-15T06:42:38.809Z",
+            "status": "pass",
+            "durationMs": 2020,
+            "summary": "start_stop_play completed.",
+            "value": "Game Started",
+            "artifacts": [
+              {
+                "kind": "json",
+                "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-38-777Z-scenario-Controlled-mapped-runtime-error-001b1791\\steps-1-play-start-result.json",
+                "size": 106
+              },
+              {
+                "kind": "text",
+                "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-38-777Z-scenario-Controlled-mapped-runtime-error-001b1791\\steps-1-play-start-text.txt",
+                "size": 12
+              }
+            ]
+          },
+          {
+            "phase": "steps",
+            "index": 1,
+            "kind": "wait",
+            "startedAt": "2026-07-15T06:42:40.829Z",
+            "status": "pass",
+            "durationMs": 2005,
+            "summary": "Waited 2000ms."
+          },
+          {
+            "phase": "steps",
+            "index": 2,
+            "kind": "console",
+            "startedAt": "2026-07-15T06:42:42.834Z",
+            "status": "pass",
+            "durationMs": 31,
+            "summary": "get_console_output completed.",
+            "value": "ServerScriptService.PiRobloxLiveError:1: PI_ROBLOX_LIVE_CONTROLLED_ERROR\nStack Begin\nScript 'ServerScriptService.PiRobloxLiveError', Line 1\nStack End\n[RoCoder] Studio plugin started — polling http://127.0.0.1:45517\n[RoCoder] Studio plugin started — polling http://127.0.0.1:45517",
+            "artifacts": [
+              {
+                "kind": "json",
+                "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-38-777Z-scenario-Controlled-mapped-runtime-error-001b1791\\controlled-error-console-result.json",
+                "size": 382
+              },
+              {
+                "kind": "text",
+                "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-38-777Z-scenario-Controlled-mapped-runtime-error-001b1791\\controlled-error-console-text.txt",
+                "size": 283
+              }
+            ]
+          },
+          {
+            "phase": "steps",
+            "index": 3,
+            "kind": "play",
+            "startedAt": "2026-07-15T06:42:42.865Z",
+            "status": "pass",
+            "durationMs": 1229,
+            "summary": "start_stop_play completed.",
+            "value": "Game Stopped",
+            "artifacts": [
+              {
+                "kind": "json",
+                "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-38-777Z-scenario-Controlled-mapped-runtime-error-001b1791\\steps-4-play-stop-result.json",
+                "size": 106
+              },
+              {
+                "kind": "text",
+                "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-38-777Z-scenario-Controlled-mapped-runtime-error-001b1791\\steps-4-play-stop-text.txt",
+                "size": 12
+              }
+            ]
+          }
+        ],
+        "diagnostics": [],
+        "savedValues": {},
+        "reportArtifact": {
+          "kind": "json",
+          "path": "D:\\Projects\\pi-roblox\\verification\\live\\windows\\fixture\\.pi\\roblox\\artifacts\\2026-07-15T06-42-38-777Z-scenario-Controlled-mapped-runtime-error-001b1791\\report.json",
+          "size": 3512
+        }
+      },
+      "mappedDiagnostic": {
+        "severity": "unknown",
+        "message": "ServerScriptService.PiRobloxLiveError:1: PI_ROBLOX_LIVE_CONTROLLED_ERROR",
+        "studioPath": "game.ServerScriptService.PiRobloxLiveError",
+        "line": 1,
+        "sourcePath": "src/server/LiveError.server.luau"
+      }
+    },
+    "wrongPlace": {
+      "rejected": true,
+      "currentPlaceId": 118023848497907,
+      "configuredExpectedPlaceId": 1,
+      "message": "Studio place 118023848497907 is not allowed; expected one of 1."
+    },
+    "deniedTool": {
+      "rejected": true,
+      "message": "Studio tool subagent is denied by the strict Pi-only policy."
+    },
+    "audit": {
+      "recordCount": 60,
+      "events": [
+        "doctor.complete",
+        "file-transaction.begin",
+        "file-transaction.complete",
+        "rollback.complete",
+        "runtime.initialized",
+        "scenario.begin",
+        "scenario.complete",
+        "studio-tool.after-mutation",
+        "studio-tool.before-mutation",
+        "studio-tool.read",
+        "studio-transaction.begin",
+        "studio-transaction.complete",
+        "studio-transaction.dry-run",
+        "studio-transaction.failed",
+        "studio.connected"
+      ],
+      "payloadLeaks": []
+    }
+  },
+  "cleanup": [],
+  "finishedAt": "2026-07-15T06:42:44.724Z"
+}

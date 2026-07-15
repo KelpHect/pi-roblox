@@ -1,0 +1,22 @@
+{
+  "operations": [
+    {
+      "kind": "create",
+      "parent": "game.Workspace.Runtime",
+      "className": "Part",
+      "name": "SpawnMarker",
+      "properties": {
+        "Anchored": true,
+        "Size": { "$type": "Vector3", "value": [4, 1, 4] },
+        "Color": { "$type": "Color3RGB", "value": [255, 196, 64] },
+        "CFrame": { "$type": "CFrame", "value": [0, 5, 0] }
+      },
+      "attributes": {
+        "GeneratedBy": "pi-roblox"
+      },
+      "tags": ["Generated", "SpawnMarker"]
+    }
+  ],
+  "dryRun": true,
+  "label": "Create a Studio-owned marker"
+}

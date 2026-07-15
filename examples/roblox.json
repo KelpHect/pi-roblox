@@ -1,0 +1,155 @@
+{
+  "$schema": "../schemas/roblox.schema.json",
+  "version": 1,
+  "mode": "rojo",
+  "projectFile": "default.project.json",
+  "expectedPlaceIds": [
+    123456789
+  ],
+  "studio": {
+    "autoConnect": true,
+    "deniedTools": [
+      "subagent",
+      "generate_mesh",
+      "generate_material",
+      "generate_procedural_model",
+      "wait_job_finished",
+      "upload_image"
+    ],
+    "alwaysAskTools": [
+      "multi_edit",
+      "execute_luau",
+      "insert_asset",
+      "store_image",
+      "start_stop_play",
+      "character_navigation",
+      "user_keyboard_input",
+      "user_mouse_input",
+      "set_active_studio"
+    ],
+    "requiredTools": [
+      "script_read",
+      "search_game_tree",
+      "inspect_instance",
+      "execute_luau",
+      "get_studio_state",
+      "start_stop_play",
+      "get_console_output",
+      "screen_capture"
+    ],
+    "syncTimeoutMs": 7500,
+    "connectTimeoutMs": 10000,
+    "requestTimeoutMs": 120000
+  },
+  "rojo": {
+    "binary": "rojo",
+    "sourcemapFile": ".pi/roblox/sourcemap.json",
+    "includeNonScripts": true,
+    "generatedPatterns": [
+      "out/**",
+      "dist/**",
+      "build/**"
+    ],
+    "dependencyPatterns": [
+      "Packages/**",
+      "ServerPackages/**",
+      "node_modules/**"
+    ],
+    "server": {
+      "autoStart": true,
+      "shutdownOnExit": true,
+      "address": "localhost",
+      "port": 34872,
+      "readinessTimeoutMs": 10000,
+      "extraArgs": []
+    }
+  },
+  "ownership": {
+    "studioOwnedRoots": [
+      "game.Workspace.Map",
+      "game.Workspace.Runtime",
+      "game.Lighting",
+      "game.SoundService"
+    ],
+    "blockAmbiguousWrites": true,
+    "requireHashForMappedWrites": true
+  },
+  "permissions": {
+    "profile": "develop",
+    "failClosedWithoutUi": true
+  },
+  "validation": {
+    "commands": [
+      {
+        "name": "format-check",
+        "command": "stylua",
+        "args": [
+          "--check",
+          "."
+        ],
+        "timeoutMs": 120000,
+        "continueOnFailure": false,
+        "env": {}
+      },
+      {
+        "name": "lint",
+        "command": "selene",
+        "args": [
+          "."
+        ],
+        "timeoutMs": 120000,
+        "continueOnFailure": false,
+        "env": {}
+      },
+      {
+        "name": "rojo-build",
+        "command": "rojo",
+        "args": [
+          "build",
+          "default.project.json",
+          "--output",
+          ".pi/roblox/check.rbxlx"
+        ],
+        "timeoutMs": 120000,
+        "continueOnFailure": false,
+        "env": {}
+      }
+    ],
+    "profiles": {
+      "changed": [
+        "format-check",
+        "lint"
+      ],
+      "default": [
+        "format-check",
+        "lint",
+        "rojo-build"
+      ]
+    },
+    "defaultProfile": "default",
+    "maxOutputChars": 30000
+  },
+  "scenarios": {
+    "directory": ".pi/roblox/scenarios",
+    "artifactsDirectory": ".pi/roblox/artifacts",
+    "defaultTimeoutMs": 60000,
+    "failOnConsoleErrors": true,
+    "failOnConsoleWarnings": false
+  },
+  "checkpoints": {
+    "directory": ".pi/roblox/checkpoints",
+    "keep": 50,
+    "autoRollbackOnApplyFailure": true,
+    "autoRollbackOnValidationFailure": false
+  },
+  "audit": {
+    "enabled": true,
+    "directory": ".pi/roblox/audit",
+    "maxValueChars": 8000
+  },
+  "context": {
+    "maxFileChars": 40000,
+    "maxSearchResults": 100,
+    "injectStatus": true
+  }
+}

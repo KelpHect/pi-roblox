@@ -1,0 +1,25 @@
+{
+  "$schema": "../schemas/roblox.schema.json",
+  "version": 1,
+  "mode": "studio-only",
+  "expectedPlaceIds": [1234567890],
+  "studio": {
+    "autoConnect": true
+  },
+  "permissions": {
+    "profile": "develop",
+    "failClosedWithoutUi": true
+  },
+  "validation": {
+    "commands": [],
+    "profiles": { "default": [] },
+    "defaultProfile": "default"
+  },
+  "scenarios": {
+    "directory": ".pi/roblox/scenarios",
+    "artifactsDirectory": ".pi/roblox/artifacts",
+    "defaultTimeoutMs": 60000,
+    "failOnConsoleErrors": true,
+    "failOnConsoleWarnings": false
+  }
+}

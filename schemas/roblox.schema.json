@@ -1,0 +1,384 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:pi-roblox:config:v1",
+  "title": "pi-roblox configuration",
+  "description": "Project-local configuration loaded from .pi/roblox.json. All fields except version are optional and inherit secure defaults.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "const": 1
+    },
+    "mode": {
+      "enum": [
+        "rojo",
+        "studio-only"
+      ],
+      "default": "rojo"
+    },
+    "projectFile": {
+      "type": "string",
+      "minLength": 1,
+      "default": "default.project.json"
+    },
+    "expectedPlaceIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "studio": {
+      "$ref": "#/$defs/studio"
+    },
+    "rojo": {
+      "$ref": "#/$defs/rojo"
+    },
+    "ownership": {
+      "$ref": "#/$defs/ownership"
+    },
+    "permissions": {
+      "$ref": "#/$defs/permissions"
+    },
+    "validation": {
+      "$ref": "#/$defs/validation"
+    },
+    "scenarios": {
+      "$ref": "#/$defs/scenarios"
+    },
+    "checkpoints": {
+      "$ref": "#/$defs/checkpoints"
+    },
+    "audit": {
+      "$ref": "#/$defs/audit"
+    },
+    "context": {
+      "$ref": "#/$defs/context"
+    }
+  },
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "studio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "autoConnect": {
+          "type": "boolean",
+          "default": true
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "args": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "deniedTools": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "alwaysAskTools": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "requiredTools": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "connectTimeoutMs": {
+          "type": "integer",
+          "minimum": 500,
+          "maximum": 120000,
+          "default": 10000
+        },
+        "requestTimeoutMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 1800000,
+          "default": 120000
+        },
+        "syncTimeoutMs": {
+          "type": "integer",
+          "minimum": 500,
+          "maximum": 120000,
+          "default": 7500
+        }
+      }
+    },
+    "rojoServer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "autoStart": {
+          "type": "boolean",
+          "default": true
+        },
+        "shutdownOnExit": {
+          "type": "boolean",
+          "default": true
+        },
+        "address": {
+          "type": "string",
+          "minLength": 1
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "readinessTimeoutMs": {
+          "type": "integer",
+          "minimum": 500,
+          "maximum": 120000,
+          "default": 10000
+        },
+        "extraArgs": {
+          "$ref": "#/$defs/stringArray"
+        }
+      }
+    },
+    "rojo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binary": {
+          "type": "string",
+          "minLength": 1,
+          "default": "rojo"
+        },
+        "sourcemapFile": {
+          "type": "string",
+          "minLength": 1,
+          "default": ".pi/roblox/sourcemap.json"
+        },
+        "includeNonScripts": {
+          "type": "boolean",
+          "default": true
+        },
+        "generatedPatterns": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "dependencyPatterns": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "server": {
+          "$ref": "#/$defs/rojoServer"
+        }
+      }
+    },
+    "ownership": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "studioOwnedRoots": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "blockAmbiguousWrites": {
+          "type": "boolean",
+          "default": true
+        },
+        "requireHashForMappedWrites": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "profile": {
+          "enum": [
+            "observe",
+            "develop",
+            "autonomous-local"
+          ],
+          "default": "develop"
+        },
+        "failClosedWithoutUi": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "validationCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "command"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "args": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 1800000,
+          "default": 120000
+        },
+        "continueOnFailure": {
+          "type": "boolean",
+          "default": false
+        },
+        "env": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {}
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/validationCommand"
+          },
+          "default": []
+        },
+        "profiles": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/stringArray"
+          },
+          "default": {
+            "default": []
+          }
+        },
+        "defaultProfile": {
+          "type": "string",
+          "minLength": 1,
+          "default": "default"
+        },
+        "maxOutputChars": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 500000,
+          "default": 30000
+        }
+      }
+    },
+    "scenarios": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "directory": {
+          "type": "string",
+          "minLength": 1,
+          "default": ".pi/roblox/scenarios"
+        },
+        "artifactsDirectory": {
+          "type": "string",
+          "minLength": 1,
+          "default": ".pi/roblox/artifacts"
+        },
+        "defaultTimeoutMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 1800000,
+          "default": 60000
+        },
+        "failOnConsoleErrors": {
+          "type": "boolean",
+          "default": true
+        },
+        "failOnConsoleWarnings": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "checkpoints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "directory": {
+          "type": "string",
+          "minLength": 1,
+          "default": ".pi/roblox/checkpoints"
+        },
+        "keep": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000,
+          "default": 50
+        },
+        "autoRollbackOnApplyFailure": {
+          "type": "boolean",
+          "default": true
+        },
+        "autoRollbackOnValidationFailure": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "directory": {
+          "type": "string",
+          "minLength": 1,
+          "default": ".pi/roblox/audit"
+        },
+        "maxValueChars": {
+          "type": "integer",
+          "minimum": 500,
+          "maximum": 100000,
+          "default": 8000
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxFileChars": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 500000,
+          "default": 40000
+        },
+        "maxSearchResults": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000,
+          "default": 100
+        },
+        "injectStatus": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  }
+}

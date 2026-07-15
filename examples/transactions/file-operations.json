@@ -1,0 +1,19 @@
+{
+  "operations": [
+    {
+      "kind": "write",
+      "target": "src/shared/InventoryService.luau",
+      "content": "local InventoryService = {}\n\nreturn InventoryService\n",
+      "expectedSha256": null
+    },
+    {
+      "kind": "move",
+      "from": "src/shared/OldName.luau",
+      "to": "src/shared/NewName.luau",
+      "expectedSha256": "SHA256_FROM_ROBLOX_INSPECT"
+    }
+  ],
+  "dryRun": true,
+  "validationProfile": "changed",
+  "label": "Inventory source transaction"
+}

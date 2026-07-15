@@ -1,0 +1,22 @@
+{
+  "name": "PiRobloxLiveAcceptance",
+  "serveAddress": "127.0.0.1",
+  "servePort": 34872,
+  "servePlaceIds": [118023848497907],
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "PiRobloxLive": {
+        "$className": "Folder",
+        "LiveSmoke": {
+          "$path": "src/shared/LiveSmoke.luau"
+        }
+      }
+    },
+    "ServerScriptService": {
+      "PiRobloxLiveError": {
+        "$path": "src/server/LiveError.server.luau"
+      }
+    }
+  }
+}

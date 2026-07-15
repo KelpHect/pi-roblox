@@ -1,0 +1,59 @@
+{
+  "$schema": "../../../../../schemas/roblox.schema.json",
+  "version": 1,
+  "mode": "rojo",
+  "projectFile": "default.project.json",
+  "expectedPlaceIds": [118023848497907],
+  "studio": {
+    "autoConnect": true,
+    "syncTimeoutMs": 15000
+  },
+  "rojo": {
+    "binary": "rojo",
+    "sourcemapFile": ".pi/roblox/sourcemap.json",
+    "includeNonScripts": true,
+    "server": {
+      "autoStart": true,
+      "shutdownOnExit": true,
+      "address": "127.0.0.1",
+      "port": 34872,
+      "readinessTimeoutMs": 10000,
+      "extraArgs": []
+    }
+  },
+  "ownership": {
+    "studioOwnedRoots": ["game.Workspace"],
+    "blockAmbiguousWrites": true,
+    "requireHashForMappedWrites": true
+  },
+  "permissions": {
+    "profile": "autonomous-local",
+    "failClosedWithoutUi": true
+  },
+  "validation": {
+    "commands": [
+      {
+        "name": "node-check",
+        "command": "node",
+        "args": ["-e", "process.stdout.write('live-validation-ok')"],
+        "timeoutMs": 30000,
+        "continueOnFailure": false,
+        "env": {}
+      },
+      {
+        "name": "rojo-build",
+        "command": "rojo",
+        "args": ["build", "default.project.json", "--output", ".pi/roblox/live-build.rbxlx"],
+        "timeoutMs": 60000,
+        "continueOnFailure": false,
+        "env": {}
+      }
+    ],
+    "profiles": {
+      "default": ["node-check", "rojo-build"],
+      "changed": ["node-check"]
+    },
+    "defaultProfile": "default",
+    "maxOutputChars": 30000
+  }
+}

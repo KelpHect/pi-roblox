@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/scenario.schema.json",
+  "version": 1,
+  "name": "Saved values and assertions",
+  "description": "Demonstrates JSON-path expectations, saved values, and final console analysis.",
+  "steps": [
+    {
+      "kind": "luau",
+      "dataModelType": "Edit",
+      "code": "return { playerCount = #game:GetService('Players'):GetPlayers(), placeId = game.PlaceId }",
+      "expect": { "jsonPath": "$.placeId", "truthy": true },
+      "saveAs": "studioInfo"
+    },
+    {
+      "kind": "assert",
+      "from": "studioInfo",
+      "expect": { "jsonPath": "$.playerCount", "equals": 0 }
+    },
+    {
+      "kind": "console",
+      "dataModelType": "Edit",
+      "name": "edit-console"
+    }
+  ],
+  "alwaysStopPlay": true
+}
