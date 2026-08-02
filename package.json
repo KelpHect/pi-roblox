@@ -1,6 +1,6 @@
 {
   "name": "@kellhect/pi-roblox",
-  "version": "0.3.0-beta.1",
+  "version": "0.3.0-beta.2",
   "description": "Rojo-aware Roblox Studio capabilities for the Pi coding harness",
   "type": "module",
   "license": "MIT",
