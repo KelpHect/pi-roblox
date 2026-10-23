@@ -20,6 +20,53 @@ for (const key of Object.keys(npmEnvironment)) {
 }
 let tarball;
 
+async function hostPeerClosure(peerNames) {
+  const lock = JSON.parse(await readFile(join(root, "package-lock.json"), "utf8"));
+  const packages = lock.packages ?? {};
+  const resolveDependency = (fromPath, name) => {
+    let base = fromPath;
+    for (;;) {
+      const candidate = `${base}${base ? "/" : ""}node_modules/${name}`;
+      if (packages[candidate]) return candidate;
+      const cut = base.lastIndexOf("/node_modules/");
+      if (cut !== -1) {
+        base = base.slice(0, cut);
+      } else if (base.startsWith("node_modules/")) {
+        base = "";
+      } else {
+        return undefined;
+      }
+    }
+  };
+
+  const visited = new Set();
+  const queue = peerNames.map((name) => {
+    const path = `node_modules/${name}`;
+    if (!packages[path]) throw new Error(`${path} is missing from package-lock.json`);
+    return path;
+  });
+  while (queue.length > 0) {
+    const entryPath = queue.shift();
+    if (visited.has(entryPath)) continue;
+    visited.add(entryPath);
+    const entry = packages[entryPath];
+    for (const name of Object.keys({ ...entry.dependencies, ...entry.optionalDependencies })) {
+      const resolved = resolveDependency(entryPath, name);
+      if (resolved) queue.push(resolved);
+      else if (entry.dependencies?.[name] !== undefined) {
+        throw new Error(`${name} required by ${entryPath} is missing from package-lock.json`);
+      }
+    }
+  }
+
+  const topLevel = new Set();
+  for (const path of visited) {
+    const segments = path.split("/node_modules/");
+    topLevel.add(segments[0]);
+  }
+  return [...topLevel].sort();
+}
+
 try {
   const packed = await exec(process.execPath, [npmCli, "pack", "--json", "--ignore-scripts"], {
     cwd: root,
@@ -48,18 +95,18 @@ try {
   });
 
   // Pi and TypeBox are host-provided peer dependencies. Reuse the exact host
-  // packages installed for this test run instead of doing a second registry
-  // resolution in the isolated fixture.
-  await cp(
-    join(root, "node_modules", "@earendil-works"),
-    join(temporary, "node_modules", "@earendil-works"),
-    { recursive: true }
-  );
-  await cp(
-    join(root, "node_modules", "typebox"),
-    join(temporary, "node_modules", "typebox"),
-    { recursive: true }
-  );
+  // packages installed for this test run, plus only their own dependency
+  // closure, instead of doing a second registry resolution in the isolated
+  // fixture. Anything else the extension imports must come from its own
+  // `dependencies`, so a missing runtime dependency still fails this test.
+  for (const packagePath of await hostPeerClosure(["@earendil-works/pi-coding-agent", "typebox"])) {
+    await cp(join(root, packagePath), join(temporary, packagePath), {
+      recursive: true,
+      force: false,
+      errorOnExist: false,
+      filter: (source) => basename(source) !== ".bin"
+    });
+  }
 
   const installedManifest = JSON.parse(await readFile(
     join(temporary, "node_modules", "@kellhect", "pi-roblox", "package.json"),

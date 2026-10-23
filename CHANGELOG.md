@@ -2,7 +2,19 @@
 
 All notable changes are documented here.
 
-## 0.3.0-beta.1 — 2026-07-15
+## Unreleased
+
+### Changed
+
+- Development dependency `@earendil-works/pi-coding-agent` moves from 0.80.7 to 1.3.0 and `typebox` to 1.3.27, the version pi 1.3.0 depends on. No source changes were needed.
+- `smoke:pack` copies the host `node_modules` tree into the packed-install fixture, so Pi 1.x runtime dependencies such as `chalk` resolve.
+- CI uses `actions/checkout@v7` and `actions/setup-node@v7`.
+
+### Security
+
+- Lockfile refreshed within existing ranges to clear `npm audit --omit=dev`: `@modelcontextprotocol/sdk` 1.32.1, `@hono/node-server` 2.1.5, `hono` 4.13.13, `fast-uri` 3.1.8 and `ip-address` 10.7.4.
+
+## 0.3.0-beta.1 - 2026-07-15
 
 ### Added
 
